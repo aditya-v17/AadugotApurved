@@ -1,0 +1,187 @@
+document.addEventListener('DOMContentLoaded', function() {
+    initCountdown();
+    initSmoothScroll();
+    initScrollAnimations();
+    initContactForm();
+    initNavbarScroll();
+});
+
+function initCountdown() {
+    // const weddingDate = new Date('2026-02-06T06:041:00').getTime();
+    
+    // function updateCountdown() {
+    //     const now = new Date().getTime();
+    //     const distance = weddingDate - now;
+        
+    //     if (distance < 0) {
+    //         document.getElementById('countdown').innerHTML = '<p class="countdown-label">We\'re Married!</p>';
+    //         return;
+    //     }
+        
+    //     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    //     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    //     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    //     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    //     document.getElementById('days').textContent = String(days).padStart(2, '0');
+    //     document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    //     document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    //     document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    // }
+    
+    // updateCountdown();
+    // setInterval(updateCountdown, 1000);
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // 🔴 CHANGE THIS DATE ONLY
+        // Format: YYYY-MM-DDTHH:MM:SS
+        //const weddingDate = new Date("2026-02-06T06:41:00");
+        const weddingDate = new Date(2026, 1, 6, 6, 41, 0); 
+
+        const daysEl = document.getElementById("days");
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+      
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const diff = weddingDate.getTime() - now;
+
+          console.log("Diff:", diff);
+      
+          if (diff <= 0) {
+            daysEl.textContent = "00";
+            hoursEl.textContent = "00";
+            minutesEl.textContent = "00";
+            secondsEl.textContent = "00";
+            return;
+          }
+      
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+      
+          daysEl.textContent = days;
+          hoursEl.textContent = String(hours).padStart(2, "0");
+          minutesEl.textContent = String(minutes).padStart(2, "0");
+          secondsEl.textContent = String(seconds).padStart(2, "0");
+        }
+      
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      });
+}
+
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const navHeight = document.getElementById('navbar').offsetHeight;
+                const targetPosition = target.offsetTop - navHeight;
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+    
+    const heroSection = document.querySelector('.hero-section .hero-content');
+    if (heroSection) {
+        setTimeout(() => {
+            heroSection.classList.add('fade-in');
+        }, 200);
+    }
+}
+
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+        
+        alert(`Thank you, ${name}! Your message has been received. We'll get back to you soon at ${email}.`);
+        
+        form.reset();
+    });
+}
+
+function initNavbarScroll() {
+    let lastScroll = 0;
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', function() {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            navbar.style.padding = '15px 0';
+            navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+        } else {
+            navbar.style.padding = '20px 0';
+            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+        }
+        
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#navbar a');
+        
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.clientHeight;
+            if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.style.color = '';
+            if (link.getAttribute('href') === '#' + current) {
+                link.style.color = 'var(--grey-blue)';
+            }
+        });
+        
+        lastScroll = currentScroll;
+    });
+}
+
+document.querySelector('.btn-calendar')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const title = 'Wedding of [Bride\'s Name] & [Groom\'s Name]';
+    const startDate = '20251231T150000';
+    const endDate = '20251231T230000';
+    const details = 'Join us for our wedding celebration!';
+    const location = '[Venue Name and Address]';
+    
+    const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+    
+    window.open(googleCalendarUrl, '_blank');
+});
