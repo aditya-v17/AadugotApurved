@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function initCountdown() {
-        const weddingDate = new Date("2026-02-06T06:41:00");
+        const weddingDate = new Date("2026-02-06T12:11:00");
 
         const daysEl = document.getElementById("days");
         const hoursEl = document.getElementById("hours");
