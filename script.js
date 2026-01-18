@@ -1,3 +1,5 @@
+console.log("script.js loaded");
+
 document.addEventListener('DOMContentLoaded', function() {
     initCountdown();
     initSmoothScroll();
@@ -6,49 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavbarScroll();
 });
 
+
 function initCountdown() {
-    // const weddingDate = new Date('2026-02-06T06:041:00').getTime();
-    
-    // function updateCountdown() {
-    //     const now = new Date().getTime();
-    //     const distance = weddingDate - now;
-        
-    //     if (distance < 0) {
-    //         document.getElementById('countdown').innerHTML = '<p class="countdown-label">We\'re Married!</p>';
-    //         return;
-    //     }
-        
-    //     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    //     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    //     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    //     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-    //     document.getElementById('days').textContent = String(days).padStart(2, '0');
-    //     document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-    //     document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-    //     document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-    // }
-    
-    // updateCountdown();
-    // setInterval(updateCountdown, 1000);
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-        // 🔴 CHANGE THIS DATE ONLY
-        // Format: YYYY-MM-DDTHH:MM:SS
-        //const weddingDate = new Date("2026-02-06T06:41:00");
-        const weddingDate = new Date(2026, 1, 6, 6, 41, 0); 
+        const weddingDate = new Date("2026-02-06T06:41:00");
 
         const daysEl = document.getElementById("days");
         const hoursEl = document.getElementById("hours");
         const minutesEl = document.getElementById("minutes");
         const secondsEl = document.getElementById("seconds");
-      
+
         function updateCountdown() {
           const now = new Date().getTime();
           const diff = weddingDate.getTime() - now;
 
-          console.log("Diff:", diff);
+          console.log("in update countdown Diff:", diff);
       
           if (diff <= 0) {
             daysEl.textContent = "00";
@@ -71,8 +44,8 @@ function initCountdown() {
       
         updateCountdown();
         setInterval(updateCountdown, 1000);
-      });
 }
+
 
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
