@@ -1,0 +1,659 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #f5ebe0;
+    --secondary-color: #e3d5ca;
+    --accent-color: #d6ccc2;
+    --text-dark: #3a3a3a;
+    --text-light: #6b6b6b;
+    --white: #ffffff;
+    --blush: #f4e4e4;
+    --sage: #b7c4b1;
+    --grey-blue: #a8b8c8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    transition: all 0.3s ease;
+}
+
+#navbar a {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#navbar a:hover {
+    color: var(--grey-blue);
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background-image: 
+        linear-gradient(rgba(245, 235, 224, 0.7), rgba(227, 213, 202, 0.7)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?w=1920&h=1080&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.couple-names {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.divider {
+    width: 80px;
+    height: 2px;
+    background: var(--text-dark);
+    margin: 0 auto 20px;
+}
+
+.divider-center {
+    width: 60px;
+    height: 2px;
+    background: var(--grey-blue);
+    margin: 20px auto 50px;
+}
+
+.wedding-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.countdown-item span:first-child {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.countdown-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 5px;
+}
+
+.btn-explore, .btn-calendar, .btn-submit {
+    display: inline-block;
+    padding: 15px 40px;
+    margin-top: 30px;
+    background: var(--text-dark);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: 2px solid var(--text-dark);
+    cursor: pointer;
+}
+
+.btn-explore:hover, .btn-calendar:hover, .btn-submit:hover {
+    background: transparent;
+    color: var(--text-dark);
+}
+
+section {
+    padding: 100px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+section.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 48px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+}
+
+.story-section {
+    background-color: var(--white);
+}
+
+.timeline {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-item {
+    margin-bottom: 60px;
+}
+
+.timeline-content {
+    text-align: center;
+}
+
+.timeline-image {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.timeline-image:hover img {
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+}
+
+.timeline-date {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey-blue);
+    margin-bottom: 20px;
+}
+
+.timeline-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.details-section {
+    background: linear-gradient(180deg, var(--white) 0%, var(--primary-color) 100%);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.event-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.event-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.event-card h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.event-detail {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.detail-label {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey-blue);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.event-detail p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin: 5px 0;
+}
+
+.event-detail strong {
+    color: var(--text-dark);
+}
+
+.map-container {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.map-container h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+#map {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-note {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 15px;
+    font-style: italic;
+}
+
+.btn-calendar {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0;
+}
+
+.travel-section {
+    background-color: var(--white);
+}
+
+
+.travel-card {
+    background: var(--primary-color);
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.travel-card h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.travel-info h4 {
+    font-size: 18px;
+    margin: 25px 0 15px;
+    color: var(--text-dark);
+}
+
+.travel-info p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin: 8px 0;
+}
+
+.hotel-item {
+    margin: 25px 0;
+    padding: 20px;
+    background: var(--white);
+    border-radius: 10px;
+}
+
+.hotel-note {
+    font-size: 13px;
+    color: var(--grey-blue);
+    font-style: italic;
+}
+
+.things-to-do {
+    max-width: 800px;
+    margin: 60px auto 0;
+    padding: 40px;
+    background: var(--blush);
+    border-radius: 15px;
+}
+
+.things-to-do h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.things-to-do ul {
+    list-style: none;
+}
+
+.things-to-do li {
+    font-size: 15px;
+    color: var(--text-light);
+    margin: 15px 0;
+    padding-left: 25px;
+    position: relative;
+}
+
+.things-to-do li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--grey-blue);
+}
+
+.social-section {
+    background: linear-gradient(180deg, var(--white) 0%, var(--secondary-color) 100%);
+    text-align: center;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.social-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.social-card h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.social-link {
+    display: inline-block;
+    font-size: 16px;
+    color: var(--grey-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--text-dark);
+}
+
+.contact-section {
+    background-color: var(--white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    background: var(--primary-color);
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.contact-card h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+.contact-info p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin: 10px 0;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 60px auto 0;
+    padding: 40px;
+    background: var(--blush);
+    border-radius: 15px;
+}
+
+.contact-form h3 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: var(--text-dark);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    background: var(--white);
+    color: var(--text-dark);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--grey-blue);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+footer {
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        gap: 15px;
+        padding: 15px 10px;
+        flex-wrap: wrap;
+    }
+    
+    #navbar a {
+        font-size: 12px;
+    }
+    
+    .couple-names {
+        font-size: 42px;
+    }
+    
+    .wedding-date {
+        font-size: 16px;
+    }
+    
+    .countdown {
+        gap: 15px;
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: 15px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 24px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+    }
+    
+    .timeline-image {
+        height: 300px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 24px;
+    }
+    
+    .event-grid,
+    .travel-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .travel-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .couple-names {
+        font-size: 32px;
+    }
+    
+    .wedding-date {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+    
+    .countdown-item {
+        min-width: 50px;
+        padding: 10px;
+    }
+    
+    .countdown-item span:first-child {
+        font-size: 20px;
+    }
+    
+    .countdown-label {
+        font-size: 10px;
+    }
+}
