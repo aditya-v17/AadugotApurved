@@ -888,3 +888,20 @@ footer p {
         padding-top: 0; /* remove artificial push */
     }
 }   
+
+/* Social circular images – uniform size */
+.social-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    background: #fff;
+}
+
+.social-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
