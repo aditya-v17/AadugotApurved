@@ -103,7 +103,7 @@ h1, h2, h3, h4 {
 
 .hero-section {
     position: relative;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -114,6 +114,10 @@ h1, h2, h3, h4 {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+
+        min-height: 100vh; /* instead of height */
+
+    
 }
 
 .hero-overlay {
@@ -873,3 +877,14 @@ footer p {
     color: var(--text-dark);
     
 }
+
+@media (min-width: 769px) {
+    .hero-section {
+        padding-top: 120px; /* creates space below fixed navbar */
+        box-sizing: border-box;
+    }
+
+    .hero-content {
+        padding-top: 0; /* remove artificial push */
+    }
+}   
