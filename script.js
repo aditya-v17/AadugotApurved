@@ -148,7 +148,7 @@ function initNavbarScroll() {
 document.querySelector('.btn-calendar')?.addEventListener('click', function(e) {
     e.preventDefault();
     
-    const title = 'Wedding of [Bride\'s Name] & [Groom\'s Name]';
+    const title = 'Wedding of Apurva & Aditya';
     const startDate = '20251231T150000';
     const endDate = '20251231T230000';
     const details = 'Join us for our wedding celebration!';
@@ -159,12 +159,15 @@ document.querySelector('.btn-calendar')?.addEventListener('click', function(e) {
     window.open(googleCalendarUrl, '_blank');
 });
 
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.backdropFilter = 'blur(10px)';
+        navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
     } else {
-        navbar.classList.remove("scrolled");
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+        navbar.style.boxShadow = 'none';
     }
 });
