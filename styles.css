@@ -710,6 +710,10 @@ footer p {
     .event-icon {
         font-size: 34px;
     }
+
+    .hero-content {
+        padding-top: 120px;
+    }
     
 }
 
@@ -734,6 +738,9 @@ footer p {
     
     .countdown-label {
         font-size: 10px;
+    }
+    .hero-content {
+        padding-top: 100px;
     }
 }
 
@@ -855,4 +862,14 @@ footer p {
 
 .event-card.reception {
     border: 1px solid #f0d8a8;
+}
+
+
+.wedding-hashtag {
+    margin: 10px 0 20px; /* top | bottom */
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: var(--text-dark);
+    
 }
