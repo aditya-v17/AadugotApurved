@@ -728,6 +728,30 @@ footer p {
         height: 90px;          /* SAME height */
         width: 150px;
     }
+
+    
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0;
+        display: none;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
     
 }
 
@@ -867,7 +891,7 @@ footer p {
 }
 
 .event-card.sangeet {
-    border: 1px solid #d9dde3;
+    border: 1px solid #9aaecd;
 }
 
 .event-card.wedding {
@@ -875,7 +899,7 @@ footer p {
 }
 
 .event-card.reception {
-    border: 1px solid #f0d8a8;
+    border: 1px solid #96da96;
 }
 
 
@@ -1068,3 +1092,18 @@ footer p {
     text-align: center;
 }
   
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-dark);
+    transition: all 0.3s ease;
+}
