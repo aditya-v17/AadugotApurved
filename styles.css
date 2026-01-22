@@ -622,25 +622,39 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    #navbar {
+    /* #navbar {
         gap: 15px;
-        /* padding: 15px 10px; */
         flex-wrap: wrap;
         padding: 15px 20px;
 
     }
-    
+
     .nav-links {
         gap: 15px;
     }
-    
+     */
     .nav-logo img {
         width: 32px;
         height: 32px;
     }
     
-    #navbar a {
+    /* #navbar a {
         font-size: 12px;
+    } */
+
+     #navbar {
+        flex-wrap: nowrap;           /* force single line */
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        gap: 12px;                   /* reduce spacing */
+        margin: 0;
+    }
+
+    #navbar a {
+        font-size: 11px;             /* slightly smaller */
+        letter-spacing: 0.8px;
     }
     
     .couple-names {
@@ -1065,4 +1079,5 @@ footer p {
 
 .upload-link-input {
     text-align: center;
+
 }
