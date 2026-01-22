@@ -335,8 +335,17 @@ section.fade-in {
 }
 
 .event-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.event-icon img {
+    height: 180px;              /* fixed height – same for all */
+    width: 180px;              /* wider → horizontal rectangle */
+    object-fit: contain;
 }
 
 .event-card h3 {
@@ -714,6 +723,11 @@ footer p {
     .hero-content {
         padding-top: 120px;
     }
+
+    .event-icon img {
+        height: 90px;          /* SAME height */
+        width: 150px;
+    }
     
 }
 
@@ -901,3 +915,156 @@ footer p {
     height: 100%;
     object-fit: cover;
 }
+
+/* ===== Share Your Photos styles ===== */
+.share-section {
+    background: linear-gradient(180deg, var(--white) 0%, #faf6f3 100%);
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  .share-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-top: 20px;
+  }
+  
+  /* Cards */
+  .share-card,
+  .gallery-card {
+    background: var(--white);
+    padding: 26px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    min-height: 240px;
+  }
+  
+  .share-card h3,
+  .gallery-card h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  /* Actions row */
+  .share-actions {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .upload-link-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--secondary-color);
+    font-size: 14px;
+    color: var(--text-dark);
+    background: #fafafa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Buttons alignment */
+  .share-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .share-buttons .btn-explore {
+    padding: 10px 18px;
+    font-size: 14px;
+    border-radius: 10px;
+    border-width: 2px;
+  }
+  
+  /* Gallery */
+  .guest-gallery {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 10px;
+    align-items: start;
+    min-height: 120px;
+  }
+  
+  .guest-gallery.empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .empty-state {
+    color: var(--text-light);
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  /* Thumbnail */
+  .thumb {
+    width: 100%;
+    padding-top: 66%; /* 3:2 aspect ratio placeholder */
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f2f2f2, #e9e9e9);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  }
+  
+  .thumb img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* small text notes */
+  .share-card .small,
+  .gallery-card .small {
+    color: var(--text-light);
+    font-size: 14px;
+  }
+  
+  /* responsive */
+  @media (max-width: 768px) {
+    .share-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .guest-gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .upload-link-input {
+      font-size: 13px;
+    }
+  }
+
+  
+  .share-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.share-card {
+    width: 100%;
+    max-width: 680px; /* looks great on laptop, not too wide */
+}
+
+.share-card {
+    text-align: center;
+}
+
+.share-actions {
+    align-items: center;
+}
+
+.upload-link-input {
+    text-align: center;
+}
+  

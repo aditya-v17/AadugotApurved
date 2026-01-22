@@ -171,3 +171,40 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = 'none';
     }
 });
+
+/* ===== Share Your Photos helper (copy + UX) ===== */
+(function () {
+    const copyBtn = document.getElementById('copyLinkBtn');
+    const uploadInput = document.getElementById('uploadLink');
+    const openBtn = document.getElementById('openUploadBtn');
+    if (!copyBtn || !uploadInput || !openBtn) return;
+  
+    // copy to clipboard
+    copyBtn.addEventListener('click', async function () {
+      try {
+        await navigator.clipboard.writeText(uploadInput.value);
+        // small transient feedback
+        const orig = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = orig, 1500);
+      } catch (err) {
+        // fallback
+        uploadInput.select();
+        try {
+          document.execCommand('copy');
+          const orig = copyBtn.textContent;
+          copyBtn.textContent = 'Copied!';
+          setTimeout(() => copyBtn.textContent = orig, 1500);
+        } catch (e) {
+          alert('Copy failed — please copy the link manually.');
+        }
+      }
+    });
+  
+    // open upload link in new tab (value-driven)
+    openBtn.addEventListener('click', function (e) {
+      // make sure the anchor points to the input value (keeps them in sync)
+      openBtn.href = uploadInput.value;
+    });
+  })();
+  
