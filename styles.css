@@ -623,10 +623,10 @@ footer p {
 
 @media (max-width: 768px) {
     #navbar {
-        gap: 10px;
+        gap: 15px;
         /* padding: 15px 10px; */
         flex-wrap: wrap;
-        padding: 15px 10px;
+        padding: 15px 20px;
 
     }
     
@@ -1065,5 +1065,4 @@ footer p {
 
 .upload-link-input {
     text-align: center;
-
 }
