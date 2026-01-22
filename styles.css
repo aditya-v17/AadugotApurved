@@ -623,7 +623,7 @@ footer p {
 
 @media (max-width: 768px) {
     #navbar {
-        gap: 15px;
+        gap: 10px;
         /* padding: 15px 10px; */
         flex-wrap: wrap;
         padding: 15px 10px;
@@ -1067,5 +1067,6 @@ footer p {
     text-align: center;
 
 }
+
 
 
