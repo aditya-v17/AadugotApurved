@@ -640,7 +640,7 @@ footer p {
     }
     
     #navbar a {
-        font-size: 12px;
+        font-size: 8px;
     }
     
     .couple-names {
@@ -1065,4 +1065,5 @@ footer p {
 
 .upload-link-input {
     text-align: center;
+
 }
